@@ -5,20 +5,22 @@ class Perceptron:
         self.__weights = [0, 0]
         self.__bias = 0
 
+        self.randomize_weights_and_bias()
+
     def activation(self, net: int) -> int:
         return 1 if net >= 0 else 0
     
-    def train(self, inputs : list, results : list, alpha : float, iterations : int) -> tuple:
-
-        self.__weights = np.random.rand(2)
-        self.__bias = np.random.rand(1)
+    def train(self, inputs : list, results : list, alpha : float, iterations : int, randomize_values = 0) -> tuple:
         totalError = 0
+
+        if randomize_values:
+            self.randomize_weights_and_bias()
 
         for _ in range(iterations):
             totalError = 0
 
             for i in range(len(inputs)):
-                net = inputs[i][0]*self.__weights[0] + inputs[i][1]*self.__weights[1] + self.__bias
+                net = inputs[i][0]*self.__weights[0] + inputs[i][1]*self.__weights[1] + self.__bias[0]
 
                 y = self.activation(net)
 
@@ -28,21 +30,33 @@ class Perceptron:
                 if(e != 0):
                     self.__weights[0] = self.__weights[0] + e * alpha * inputs[i][0]
                     self.__weights[1] = self.__weights[1] + e * alpha * inputs[i][1]
-                    self.__bias = self.__bias + e * alpha
+                    self.__bias[0] = self.__bias[0] + e * alpha
 
             if totalError == 0:
                 break
 
     def predict(self, x, y):
-        net = x*self.__weights[0] + y*self.__weights[1] + self.__bias
+        net = x*self.__weights[0] + y*self.__weights[1] + self.__bias[0]
 
         return self.activation(net)
     
     def get_MB_equation_line(self):
         if self.__weights[1]:
             m = -(self.__weights[0] / self.__weights[1])
-            c = -(self.__bias / self.__weights[1])
+            c = -(self.__bias[0] / self.__weights[1])
 
             return (m,c)
         else:
             return None
+        
+    @property
+    def weights(self):
+        return self.__weights
+    
+    @property
+    def bias(self):
+        return self.__bias[0]
+
+    def randomize_weights_and_bias(self):
+        self.__weights = np.random.rand(2)
+        self.__bias = np.random.rand(1)
