@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>890</width>
-    <height>518</height>
+    <width>966</width>
+    <height>596</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -97,33 +97,139 @@ color: rgb(31, 31, 31);
            </spacer>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_2">
+           <widget class="QLabel" name="label_10">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Parametros Iniciales</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0">
             <item>
-             <widget class="QLabel" name="label_10">
-              <property name="font">
-               <font>
-                <pointsize>10</pointsize>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Insertar puntos.</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,1,1">
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_7">
                 <item>
                  <widget class="QLabel" name="label_11">
                   <property name="text">
-                   <string>Coordenada X</string>
+                   <string>Peso 1</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QTextEdit" name="input_coord_x">
+                 <widget class="QTextEdit" name="output_weight_01">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>25</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">				background-color: rgb(236, 243, 244);</string>
+                  </property>
+                  <property name="tabChangesFocus">
+                   <bool>true</bool>
+                  </property>
+                  <property name="readOnly">
+                   <bool>true</bool>
+                  </property>
+                  <property name="cursorWidth">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_8">
+                <item>
+                 <widget class="QLabel" name="label_12">
+                  <property name="text">
+                   <string>Peso 2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTextEdit" name="output_weight_02">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>25</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(236, 243, 244);</string>
+                  </property>
+                  <property name="tabChangesFocus">
+                   <bool>true</bool>
+                  </property>
+                  <property name="readOnly">
+                   <bool>true</bool>
+                  </property>
+                  <property name="cursorWidth">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_9">
+                <item>
+                 <widget class="QLabel" name="label_13">
+                  <property name="text">
+                   <string>Bias</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTextEdit" name="output_bias">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>25</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(236, 243, 244);</string>
+                  </property>
+                  <property name="tabChangesFocus">
+                   <bool>true</bool>
+                  </property>
+                  <property name="readOnly">
+                   <bool>true</bool>
+                  </property>
+                  <property name="cursorWidth">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
+              <property name="bottomMargin">
+               <number>10</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_12">
+                <item>
+                 <widget class="QLabel" name="label_14">
+                  <property name="text">
+                   <string>Taza Aprendizaje</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTextEdit" name="input_alpha">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -141,16 +247,16 @@ color: rgb(31, 31, 31);
                </layout>
               </item>
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_8">
+               <layout class="QVBoxLayout" name="verticalLayout_14">
                 <item>
-                 <widget class="QLabel" name="label_12">
+                 <widget class="QLabel" name="label_15">
                   <property name="text">
-                   <string>Coordenada Y</string>
+                   <string>Numero Iteraciones</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QTextEdit" name="input_coord_y">
+                 <widget class="QTextEdit" name="input_iterations">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -158,34 +264,7 @@ color: rgb(31, 31, 31);
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(236, 243, 244);</string>
-                  </property>
-                  <property name="tabChangesFocus">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_9">
-                <item>
-                 <widget class="QLabel" name="label_13">
-                  <property name="text">
-                   <string>Cantidad</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QTextEdit" name="input_quantity">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>25</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(236, 243, 244);</string>
+                   <string notr="true">				background-color: rgb(236, 243, 244);</string>
                   </property>
                   <property name="tabChangesFocus">
                    <bool>true</bool>
@@ -197,31 +276,28 @@ color: rgb(31, 31, 31);
              </layout>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0,0">
+             <layout class="QHBoxLayout" name="horizontalLayout">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_4">
+               <layout class="QVBoxLayout" name="verticalLayout_13">
                 <item>
-                 <widget class="QPushButton" name="button_insert_points">
+                 <widget class="QPushButton" name="button_generate_data_new">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>40</height>
+                    <height>35</height>
                    </size>
                   </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>ArrowCursor</cursorShape>
+                  <property name="font">
+                   <font>
+                    <pointsize>8</pointsize>
+                   </font>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(0, 87, 111);</string>
                   </property>
                   <property name="text">
-                   <string>Insertar</string>
+                   <string>Nuevos
+Parametros</string>
                   </property>
                  </widget>
                 </item>
@@ -230,39 +306,48 @@ color: rgb(31, 31, 31);
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_5">
                 <item>
-                 <widget class="QPushButton" name="button_clean">
+                 <widget class="QPushButton" name="button_start">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>40</height>
+                    <height>35</height>
                    </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>8</pointsize>
+                   </font>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(0, 87, 111);</string>
                   </property>
                   <property name="text">
-                   <string>Limpiar</string>
+                   <string>Iniciar Analisis</string>
                   </property>
                  </widget>
                 </item>
                </layout>
               </item>
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_14">
+               <layout class="QVBoxLayout" name="verticalLayout_15">
                 <item>
-                 <widget class="QPushButton" name="button_generate_points">
+                 <widget class="QPushButton" name="button_clean">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>40</height>
+                    <height>35</height>
                    </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>8</pointsize>
+                   </font>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(0, 87, 111);</string>
                   </property>
                   <property name="text">
-                   <string>Generar 
-Aleatoriamente</string>
+                   <string>Limpiar</string>
                   </property>
                  </widget>
                 </item>

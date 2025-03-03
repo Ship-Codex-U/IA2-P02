@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(890, 518)
+        MainWindow.resize(966, 596)
         MainWindow.setStyleSheet(u"QTextEdit {\n"
 "border-radius: 7px;\n"
 "}\n"
@@ -74,8 +74,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addItem(self.verticalSpacer)
 
-        self.verticalLayout_2 = QVBoxLayout()
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label_10 = QLabel(self.frame_2)
         self.label_10.setObjectName(u"label_10")
         font1 = QFont()
@@ -83,8 +81,10 @@ class Ui_MainWindow(object):
         font1.setBold(True)
         self.label_10.setFont(font1)
 
-        self.verticalLayout_2.addWidget(self.label_10)
+        self.verticalLayout_3.addWidget(self.label_10)
 
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.verticalLayout_7 = QVBoxLayout()
@@ -94,13 +94,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7.addWidget(self.label_11)
 
-        self.input_coord_x = QTextEdit(self.frame_2)
-        self.input_coord_x.setObjectName(u"input_coord_x")
-        self.input_coord_x.setMaximumSize(QSize(16777215, 25))
-        self.input_coord_x.setStyleSheet(u"				background-color: rgb(236, 243, 244);")
-        self.input_coord_x.setTabChangesFocus(True)
+        self.output_weight_01 = QTextEdit(self.frame_2)
+        self.output_weight_01.setObjectName(u"output_weight_01")
+        self.output_weight_01.setMaximumSize(QSize(16777215, 25))
+        self.output_weight_01.setStyleSheet(u"				background-color: rgb(236, 243, 244);")
+        self.output_weight_01.setTabChangesFocus(True)
+        self.output_weight_01.setReadOnly(True)
+        self.output_weight_01.setCursorWidth(0)
 
-        self.verticalLayout_7.addWidget(self.input_coord_x)
+        self.verticalLayout_7.addWidget(self.output_weight_01)
 
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_7)
@@ -112,13 +114,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.label_12)
 
-        self.input_coord_y = QTextEdit(self.frame_2)
-        self.input_coord_y.setObjectName(u"input_coord_y")
-        self.input_coord_y.setMaximumSize(QSize(16777215, 25))
-        self.input_coord_y.setStyleSheet(u"background-color: rgb(236, 243, 244);")
-        self.input_coord_y.setTabChangesFocus(True)
+        self.output_weight_02 = QTextEdit(self.frame_2)
+        self.output_weight_02.setObjectName(u"output_weight_02")
+        self.output_weight_02.setMaximumSize(QSize(16777215, 25))
+        self.output_weight_02.setStyleSheet(u"background-color: rgb(236, 243, 244);")
+        self.output_weight_02.setTabChangesFocus(True)
+        self.output_weight_02.setReadOnly(True)
+        self.output_weight_02.setCursorWidth(0)
 
-        self.verticalLayout_8.addWidget(self.input_coord_y)
+        self.verticalLayout_8.addWidget(self.output_weight_02)
 
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_8)
@@ -130,62 +134,112 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_9.addWidget(self.label_13)
 
-        self.input_quantity = QTextEdit(self.frame_2)
-        self.input_quantity.setObjectName(u"input_quantity")
-        self.input_quantity.setMaximumSize(QSize(16777215, 25))
-        self.input_quantity.setStyleSheet(u"background-color: rgb(236, 243, 244);")
-        self.input_quantity.setTabChangesFocus(True)
+        self.output_bias = QTextEdit(self.frame_2)
+        self.output_bias.setObjectName(u"output_bias")
+        self.output_bias.setMaximumSize(QSize(16777215, 25))
+        self.output_bias.setStyleSheet(u"background-color: rgb(236, 243, 244);")
+        self.output_bias.setTabChangesFocus(True)
+        self.output_bias.setReadOnly(True)
+        self.output_bias.setCursorWidth(0)
 
-        self.verticalLayout_9.addWidget(self.input_quantity)
+        self.verticalLayout_9.addWidget(self.output_bias)
 
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_9)
 
+        self.horizontalLayout_4.setStretch(0, 1)
+        self.horizontalLayout_4.setStretch(1, 1)
+        self.horizontalLayout_4.setStretch(2, 1)
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_4)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.verticalLayout_4 = QVBoxLayout()
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.button_insert_points = QPushButton(self.frame_2)
-        self.button_insert_points.setObjectName(u"button_insert_points")
-        self.button_insert_points.setMinimumSize(QSize(0, 40))
-        self.button_insert_points.setMaximumSize(QSize(16777215, 16777215))
-        self.button_insert_points.setCursor(QCursor(Qt.CursorShape.ArrowCursor))
-        self.button_insert_points.setStyleSheet(u"background-color: rgb(0, 87, 111);")
+        self.horizontalLayout_3.setContentsMargins(-1, -1, -1, 10)
+        self.verticalLayout_12 = QVBoxLayout()
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.label_14 = QLabel(self.frame_2)
+        self.label_14.setObjectName(u"label_14")
 
-        self.verticalLayout_4.addWidget(self.button_insert_points)
+        self.verticalLayout_12.addWidget(self.label_14)
 
+        self.input_alpha = QTextEdit(self.frame_2)
+        self.input_alpha.setObjectName(u"input_alpha")
+        self.input_alpha.setMaximumSize(QSize(16777215, 25))
+        self.input_alpha.setStyleSheet(u"				background-color: rgb(236, 243, 244);")
+        self.input_alpha.setTabChangesFocus(True)
 
-        self.horizontalLayout_3.addLayout(self.verticalLayout_4)
-
-        self.verticalLayout_5 = QVBoxLayout()
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.button_clean = QPushButton(self.frame_2)
-        self.button_clean.setObjectName(u"button_clean")
-        self.button_clean.setMinimumSize(QSize(0, 40))
-        self.button_clean.setStyleSheet(u"background-color: rgb(0, 87, 111);")
-
-        self.verticalLayout_5.addWidget(self.button_clean)
+        self.verticalLayout_12.addWidget(self.input_alpha)
 
 
-        self.horizontalLayout_3.addLayout(self.verticalLayout_5)
+        self.horizontalLayout_3.addLayout(self.verticalLayout_12)
 
         self.verticalLayout_14 = QVBoxLayout()
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
-        self.button_generate_points = QPushButton(self.frame_2)
-        self.button_generate_points.setObjectName(u"button_generate_points")
-        self.button_generate_points.setMinimumSize(QSize(0, 40))
-        self.button_generate_points.setStyleSheet(u"background-color: rgb(0, 87, 111);")
+        self.label_15 = QLabel(self.frame_2)
+        self.label_15.setObjectName(u"label_15")
 
-        self.verticalLayout_14.addWidget(self.button_generate_points)
+        self.verticalLayout_14.addWidget(self.label_15)
+
+        self.input_iterations = QTextEdit(self.frame_2)
+        self.input_iterations.setObjectName(u"input_iterations")
+        self.input_iterations.setMaximumSize(QSize(16777215, 25))
+        self.input_iterations.setStyleSheet(u"				background-color: rgb(236, 243, 244);")
+        self.input_iterations.setTabChangesFocus(True)
+
+        self.verticalLayout_14.addWidget(self.input_iterations)
 
 
         self.horizontalLayout_3.addLayout(self.verticalLayout_14)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.verticalLayout_13 = QVBoxLayout()
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.button_generate_data_new = QPushButton(self.frame_2)
+        self.button_generate_data_new.setObjectName(u"button_generate_data_new")
+        self.button_generate_data_new.setMinimumSize(QSize(0, 35))
+        font2 = QFont()
+        font2.setPointSize(8)
+        self.button_generate_data_new.setFont(font2)
+        self.button_generate_data_new.setStyleSheet(u"background-color: rgb(0, 87, 111);")
+
+        self.verticalLayout_13.addWidget(self.button_generate_data_new)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout_13)
+
+        self.verticalLayout_5 = QVBoxLayout()
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.button_start = QPushButton(self.frame_2)
+        self.button_start.setObjectName(u"button_start")
+        self.button_start.setMinimumSize(QSize(0, 35))
+        self.button_start.setFont(font2)
+        self.button_start.setStyleSheet(u"background-color: rgb(0, 87, 111);")
+
+        self.verticalLayout_5.addWidget(self.button_start)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout_5)
+
+        self.verticalLayout_15 = QVBoxLayout()
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.button_clean = QPushButton(self.frame_2)
+        self.button_clean.setObjectName(u"button_clean")
+        self.button_clean.setMinimumSize(QSize(0, 35))
+        self.button_clean.setFont(font2)
+        self.button_clean.setStyleSheet(u"background-color: rgb(0, 87, 111);")
+
+        self.verticalLayout_15.addWidget(self.button_clean)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout_15)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
 
 
         self.verticalLayout_3.addLayout(self.verticalLayout_2)
@@ -298,14 +352,16 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Perceptr\u00f3n", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Insertar puntos.", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Coordenada X", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Coordenada Y", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Cantidad", None))
-        self.button_insert_points.setText(QCoreApplication.translate("MainWindow", u"Insertar", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Parametros Iniciales", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Peso 1", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Peso 2", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Bias", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Taza Aprendizaje", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Numero Iteraciones", None))
+        self.button_generate_data_new.setText(QCoreApplication.translate("MainWindow", u"Nuevos\n"
+"Parametros", None))
+        self.button_start.setText(QCoreApplication.translate("MainWindow", u"Iniciar Analisis", None))
         self.button_clean.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
-        self.button_generate_points.setText(QCoreApplication.translate("MainWindow", u"Generar \n"
-"Aleatoriamente", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Modificaci\u00f3n de los parametros.", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Peso 01", None))
         self.label_weight_01.setText(QCoreApplication.translate("MainWindow", u"0", None))

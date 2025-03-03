@@ -1,8 +1,5 @@
 import sys
-import os
-import re
 import numpy as np
-import random
 
 from module import *
 
@@ -10,14 +7,14 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        #Establecer el rango de los ejes coordenados
         self.rangeMinGraphic = -8
         self.rangeMaxGraphic = 8
-        self.rangeMinSlider = -25
-        self.rangeMaxSlider = 25
 
         self.zoom_factor = 1.2
 
-        self.points = []
+        self.points = Points()
+        self.perceptron = Perceptron()
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -28,19 +25,110 @@ class MainWindow(QMainWindow):
         self.ax = self.figure.add_subplot(111)
 
         self.ui.layout_graphic.addWidget(self.canvas)
-        self.ui.button_generate_points.clicked.connect(self.click_point_generate)
-        self.ui.button_insert_points.clicked.connect(self.click_insert_point)
+        self.ui.button_start.clicked.connect(self.click_start_analysis)
+        self.ui.button_generate_data_new.clicked.connect(self.generate_new_data)
         self.ui.button_clean.clicked.connect(self.click_clean)
         self.canvas.mpl_connect("button_press_event", self.click_insert_point_mouse)
-        self.ui.slider_weight_01.valueChanged.connect(self.change_slider_value)
-        self.ui.slider_weight_02.valueChanged.connect(self.change_slider_value)
-        self.ui.slider_bias.valueChanged.connect(self.change_slider_value)
 
         self.canvas.mpl_connect("scroll_event", self.on_scroll)
+        self.generate_new_data()
 
         self.init_plot()
-        self.init_sliders()
         self.show()
+
+    @Slot()
+    def click_start_analysis(self):
+        if not self.validate_inputs():
+            return
+        
+        alpha = float(self.ui.input_alpha.toPlainText())
+        iterations = 1000
+
+        if not self.perceptron.train(self.points.get_inputs(), self.points.get_results(), alpha, iterations):
+            QMessageBox.critical(self, "Error", "No se pudo entrenar el perceptrón.")
+
+        weight_01, weight_02 = self.perceptron.weights
+        bias = self.perceptron.bias
+
+        self.ui.output_weight_01.setText(str(round(weight_01, 5)))
+        self.ui.output_weight_02.setText(str(round(weight_02, 5)))
+        self.ui.output_bias.setText(str(round(bias, 2)))
+
+        m, b = self.perceptron.get_MB_equation_line()
+
+        if m is not None:
+            self.draw_equation_line(self.rangeMinGraphic, self.rangeMaxGraphic, m, b)
+    
+    @Slot()
+    def generate_new_data(self):
+        self.perceptron.randomize_weights_and_bias()
+
+        weight_01, weight_02 = self.perceptron.weights
+        bias = self.perceptron.bias
+
+        self.ui.output_weight_01.setText(str(round(weight_01, 5)))
+        self.ui.output_weight_02.setText(str(round(weight_02, 5)))
+        self.ui.output_bias.setText(str(round(bias, 5)))
+
+    def click_insert_point_mouse(self, event):
+        if event.xdata is not None and event.ydata is not None:
+            coord = (event.xdata, event.ydata)
+            color = 'black'
+            value = 0
+
+            if event.button == 1:
+                color = 'blue'
+                value = 1
+            elif event.button == 3:
+                color = 'red'
+                value = 0
+            else:
+                color = 'black'
+                value = -1
+
+            self.ax.plot(coord[0], coord[1], 'o', color=color, markersize=4)
+            self.ax.annotate(f'({value})', (coord[0], coord[1]), textcoords="offset points", xytext=(0,5), ha='center')
+
+            self.points.insert_point(coord[0], coord[1], value, color)
+
+            self.canvas.draw_idle()
+
+            #self.update_plot()
+    
+    def draw_equation_line(self, x_min, x_max, m, b):
+        x = np.linspace(x_min, x_max + 1, 1000)
+        y = m * x + b
+
+        self.ax.plot(x, y, color='red', label=f'y = {m:.2f}x + {b:.2f} ')
+        self.ax.legend()
+        self.canvas.draw_idle()
+
+    @Slot()
+    def click_clean(self):
+        self.points.clear()
+        self.init_inputs()
+        self.init_plot()
+        self.canvas.draw_idle()
+
+    def init_plot(self):
+        self.ax.clear()
+        self.ax.set_xlim(self.rangeMinGraphic, self.rangeMaxGraphic)
+        self.ax.set_ylim(self.rangeMinGraphic, self.rangeMaxGraphic)
+        self.ax.set_aspect('equal')
+
+        self.ax.spines["left"].set_position("zero")
+        self.ax.spines["bottom"].set_position("zero")
+        self.ax.spines["right"].set_color("none")
+        self.ax.spines["top"].set_color("none")
+
+        self.ax.grid(True, linestyle="--", linewidth=0.5)
+
+        self.ax.set_xticks(np.arange(self.rangeMinGraphic, self.rangeMaxGraphic + 1, 1))
+        self.ax.set_yticks(np.arange(self.rangeMinGraphic, self.rangeMaxGraphic + 1, 1))
+        
+    def init_inputs(self):
+        self.ui.input_alpha.setText("")
+        self.ui.input_iterations.setText("")
     
     def on_scroll(self, event):
         xlim = self.ax.get_xlim()
@@ -60,145 +148,23 @@ class MainWindow(QMainWindow):
         self.ax.set_xlim(new_xlim)
         self.ax.set_ylim(new_ylim)
         self.canvas.draw()
-
-    @Slot()
-    def click_point_generate(self):
-        quantity = int(self.ui.input_quantity.toPlainText())
-
-        self.points.clear()
-        self.points = self.point_generate(quantity, self.rangeMinGraphic, self.rangeMaxGraphic)
-        self.update_plot()
-
-    @Slot()
-    def click_insert_point(self):
-        x = int(self.ui.input_coord_x.toPlainText())
-        y = int(self.ui.input_coord_y.toPlainText())
-
-        self.ui.input_coord_x.setText("")
-        self.ui.input_coord_y.setText("")
-
-        self.points.append((x, y))
-
-        self.update_plot()
-
-    @Slot()
-    def click_clean(self):
-        self.points.clear()
-
-        self.init_sliders()
-        self.init_inputs()
-        self.init_labels()
-        self.update_plot()
-
-
-    def click_insert_point_mouse(self, event):
-        if event.xdata is not None and event.ydata is not None:
-            coord = (event.xdata, event.ydata)
-            self.points.append(coord)
-
-            weight_01 = self.ui.slider_weight_01.value() / 10.0
-            weight_02 = self.ui.slider_weight_02.value() / 10.0
-            bias = self.ui.slider_bias.value() / 10.0
-
-            perceptron = Perceptron(weight_01, weight_02, bias)
-
-            self.ax.plot(coord[0], coord[1], 'o', color='blue', markersize=4)
-            self.ax.annotate(f'({perceptron.predict(coord[0], coord[1])})', (coord[0], coord[1]), textcoords="offset points", xytext=(0,5), ha='center')
-            self.canvas.draw_idle()
-
-            #self.update_plot()
     
-    @Slot()
-    def change_slider_value(self, value):
-        weight_01 = self.ui.slider_weight_01.value() / 10.0
-        weight_02 = self.ui.slider_weight_02.value() / 10.0
-        bias = self.ui.slider_bias.value() / 10.0
+    def validate_inputs(self):
+        alpha = self.ui.input_alpha.toPlainText()
+        iterations = self.ui.input_iterations.toPlainText()
 
-        self.ui.label_weight_01.setText(str(weight_01))
-        self.ui.label_weight_02.setText(str(weight_02))
-        self.ui.label_bias.setText(str(bias))
+        if not alpha or not iterations:
+            QMessageBox.critical(self, "Error", "Alguno de los campos están vacíos, favor de verificar.")    
+            return False
 
-        perceptron = Perceptron(weight_01, weight_02, bias)
+        try:
+            alpha = float(alpha)
+            iterations = int(iterations)
+        except ValueError:
+            QMessageBox.critical(self, "Error", "Los campos deben ser numéricos, favor de verificar.")
+            return False
 
-        result = perceptron.get_MB_equation_line()
-
-        if result is not None:
-            m, b = result
-
-            self.draw_equation_line(self.rangeMinGraphic, self.rangeMaxGraphic, m, b)
-
-
-    def point_generate(self, quantity, lower_limit, upper_limit):
-        x = np.random.randint(lower_limit, upper_limit + 1, size = quantity)
-        y = np.random.randint(lower_limit, upper_limit + 1, size = quantity)
-
-        return list(zip(x, y))
-
-    def init_plot(self):
-        self.ax.set_xlim(self.rangeMinGraphic, self.rangeMaxGraphic)
-        self.ax.set_ylim(self.rangeMinGraphic, self.rangeMaxGraphic)
-        self.ax.set_aspect('equal')
-
-        self.ax.spines["left"].set_position("zero")
-        self.ax.spines["bottom"].set_position("zero")
-        self.ax.spines["right"].set_color("none")
-        self.ax.spines["top"].set_color("none")
-
-        self.ax.grid(True, linestyle="--", linewidth=0.5)
-
-        self.ax.set_xticks(np.arange(self.rangeMinGraphic, self.rangeMaxGraphic + 1, 1))
-        self.ax.set_yticks(np.arange(self.rangeMinGraphic, self.rangeMaxGraphic + 1, 1))
-    
-    def update_plot(self):
-        weight_01 = self.ui.slider_weight_01.value() / 10.0
-        weight_02 = self.ui.slider_weight_02.value() / 10.0
-        bias = self.ui.slider_bias.value() / 10.0
-
-        perceptron = Perceptron(weight_01, weight_02, bias)
-
-        self.ax.clear()
-        self.init_plot()
-
-        if self.points:
-            x_data, y_data = zip(*self.points)
-            self.ax.plot(x_data, y_data, 'o', color='blue', markersize=4)  
-
-            for i, (x, y) in enumerate(zip(x_data, y_data)):
-                self.ax.annotate(f'({perceptron.predict(x, y)})', (x, y), textcoords="offset points", xytext=(0,5), ha='center')
-
-        # for point in self.points:
-        #     self.ax.scatter(point[0], point[1], marker="o", color="r", s=50)
-
-        self.canvas.draw_idle()
-
-    def init_sliders(self):
-        self.ui.slider_weight_01.setRange(self.rangeMinSlider * 10, self.rangeMaxSlider * 10)
-        self.ui.slider_weight_01.setValue(0)
-
-        self.ui.slider_weight_02.setRange(self.rangeMinSlider * 10, self.rangeMaxSlider * 10)
-        self.ui.slider_weight_02.setValue(0)
-
-        self.ui.slider_bias.setRange(self.rangeMinSlider * 10, self.rangeMaxSlider * 10)
-        self.ui.slider_bias.setValue(0)
-    
-    def init_labels(self):
-        self.ui.label_weight_01.setText("0")
-        self.ui.label_weight_02.setText("0")
-        self.ui.label_bias.setText("0")
-    
-    def init_inputs(self):
-        self.ui.input_coord_x.setText("")
-        self.ui.input_coord_y.setText("")
-        self.ui.input_quantity.setText("")
-
-    def draw_equation_line(self, x_min, x_max, m, b):
-        x = np.linspace(x_min, x_max + 1, 1000)
-        y = m * x + b
-
-        self.update_plot()
-        self.ax.plot(x, y, color='red', label=f'y = {m:.2f}x + {b:.2f} ')
-        self.ax.legend()
-        self.canvas.draw_idle()
+        return True
 
 
 if __name__ == "__main__":

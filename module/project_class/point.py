@@ -1,11 +1,10 @@
 class Point:
-    def __init__(self, x_coordinate = -1, y_coordinate = -1, red = 255, green = 255, blue = 255 ) -> None:
+    def __init__(self, x_coordinate = -1, y_coordinate = -1, value = -1 , color = "black" ) -> None:
         self.__x_coordinate = x_coordinate
         self.__y_coordinate = y_coordinate
-        self.__red = red
-        self.__green = green
-        self.__blue = blue 
-    
+        self.__value = value
+        self.__color = color
+
     @property
     def x_coordinate(self):
         return self.__x_coordinate
@@ -21,36 +20,23 @@ class Point:
     @y_coordinate.setter
     def y_coordinate(self, y_coordinate):
         self.__y_coordinate = y_coordinate
-    
-    @property
-    def red(self):
-        return self.__red
-    
-    @red.setter
-    def red(self, red):
-        self.__red = red
-    
-    @property
-    def green(self):
-        return self.__green
-    
-    @green.setter
-    def green(self, green):
-        self.__green = green
-    
-    @property
-    def blue(self):
-        return self.__blue
-    
-    @blue.setter
-    def blue(self, blue):
-        self.__blue = blue
 
-    def getColor(self):
-        return (self.__red, self.__green, self.__blue)
+    @property
+    def value(self):
+        return self.__value
     
-    def setColor(self, red, green, blue):
-        self.__red = red
-        self.__green = green
-        self.__blue = blue
+    @value.setter
+    def value(self, value):
+        self.__value = value
+    
+    @property
+    def color(self):
+        return self.__color
+    
+    @color.setter
+    def red(self, color):
+        self.__color = color
+
+    def __str__(self):
+        return f"({self.__x_coordinate}, {self.__y_coordinate}, {self.__value}, {self.__color})"
         

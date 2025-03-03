@@ -10,7 +10,8 @@ class Perceptron:
     def activation(self, net: int) -> int:
         return 1 if net >= 0 else 0
     
-    def train(self, inputs : list, results : list, alpha : float, iterations : int, randomize_values = 0) -> tuple:
+    def train(self, inputs : list, results : list, alpha : float, iterations : int, randomize_values = 0) -> bool:
+        
         totalError = 0
 
         if randomize_values:
@@ -33,7 +34,9 @@ class Perceptron:
                     self.__bias[0] = self.__bias[0] + e * alpha
 
             if totalError == 0:
-                break
+                return True
+        
+        return False
 
     def predict(self, x, y):
         net = x*self.__weights[0] + y*self.__weights[1] + self.__bias[0]

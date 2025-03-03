@@ -7,3 +7,4 @@ from matplotlib.figure import Figure
 
 from .main_ui import Ui_MainWindow
 from .project_class.perceptron import *
+from .project_class.points import *
