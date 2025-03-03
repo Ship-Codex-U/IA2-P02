@@ -322,7 +322,8 @@ Parametros</string>
                    <string notr="true">background-color: rgb(0, 87, 111);</string>
                   </property>
                   <property name="text">
-                   <string>Iniciar Analisis</string>
+                   <string>Iniciar 
+ Entrenamiento</string>
                   </property>
                  </widget>
                 </item>

@@ -438,7 +438,8 @@ class Ui_MainWindow(object):
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Numero Iteraciones", None))
         self.button_generate_data_new.setText(QCoreApplication.translate("MainWindow", u"Nuevos\n"
 "Parametros", None))
-        self.button_start.setText(QCoreApplication.translate("MainWindow", u"Iniciar Analisis", None))
+        self.button_start.setText(QCoreApplication.translate("MainWindow", u"Iniciar \n"
+" Entrenamiento", None))
         self.button_clean.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Metricas.", None))
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"Matriz de confusi\u00f3n.", None))
