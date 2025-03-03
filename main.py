@@ -1,5 +1,6 @@
 import sys
 import numpy as np
+from sklearn.metrics import confusion_matrix
 
 from module import *
 
@@ -8,8 +9,8 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         #Establecer el rango de los ejes coordenados
-        self.rangeMinGraphic = -8
-        self.rangeMaxGraphic = 8
+        self.rangeMinGraphic = -10
+        self.rangeMaxGraphic = 10
 
         self.zoom_factor = 1.2
 
@@ -38,13 +39,16 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def click_start_analysis(self):
+        input_values = self.points.get_inputs()
+        true_values = self.points.get_results()
+
         if not self.validate_inputs():
             return
         
         alpha = float(self.ui.input_alpha.toPlainText())
         iterations = 1000
 
-        if not self.perceptron.train(self.points.get_inputs(), self.points.get_results(), alpha, iterations):
+        if not self.perceptron.train(input_values, true_values, alpha, iterations):
             QMessageBox.critical(self, "Error", "No se pudo entrenar el perceptrón.")
 
         weight_01, weight_02 = self.perceptron.weights
@@ -58,6 +62,26 @@ class MainWindow(QMainWindow):
 
         if m is not None:
             self.draw_equation_line(self.rangeMinGraphic, self.rangeMaxGraphic, m, b)
+        
+        predicted_values = self.perceptron.predict(self.points.get_inputs())
+
+        if len(true_values) != len(predicted_values):
+            QMessageBox.critical(self, "Error", "El número de valores verdaderos y predichos no coincide.")
+        else:
+            tn, fp, fn, tp = confusion_matrix(true_values, predicted_values).ravel()
+        
+            self.ui.output_true_negatives.setText(str(tn))
+            self.ui.output_false_positives.setText(str(fp))
+            self.ui.output_false_negatives.setText(str(fn))
+            self.ui.output_true_positives.setText(str(tp))
+        
+        precision = tp / (tp + fp) #¿Que proporcion de identificaciones positivas fue realmente correcta?
+        recall = tp / (tp + fn) #¿Que proporcion de positivos reales se identificaron correctamente?
+        f1_score = 2 * (precision * recall) / (precision + recall) #Media armónica de precision y recall
+
+        self.ui.output_precision.setText(str(round(precision, 2)))
+        self.ui.output_f1_score.setText(str(round(f1_score, 2)))
+
     
     @Slot()
     def generate_new_data(self):

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>998</width>
-    <height>642</height>
+    <width>966</width>
+    <height>596</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -51,7 +51,7 @@ color: rgb(31, 31, 31);
       <property name="frameShadow">
        <enum>QFrame::Shadow::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="4,2">
+      <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="3,2">
        <item>
         <layout class="QVBoxLayout" name="layout_graphic"/>
        </item>
@@ -66,7 +66,7 @@ color: rgb(31, 31, 31);
          <property name="frameShadow">
           <enum>QFrame::Shadow::Raised</enum>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_6">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <widget class="QLabel" name="label">
             <property name="font">
@@ -105,12 +105,12 @@ color: rgb(31, 31, 31);
              </font>
             </property>
             <property name="text">
-             <string>Entrenamiento.</string>
+             <string>Parametros Iniciales</string>
             </property>
            </widget>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_2">
+           <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,1,1">
               <item>
@@ -131,7 +131,7 @@ color: rgb(31, 31, 31);
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(216, 216, 216);</string>
+                   <string notr="true">				background-color: rgb(236, 243, 244);</string>
                   </property>
                   <property name="tabChangesFocus">
                    <bool>true</bool>
@@ -164,7 +164,7 @@ color: rgb(31, 31, 31);
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(216, 216, 216);</string>
+                   <string notr="true">background-color: rgb(236, 243, 244);</string>
                   </property>
                   <property name="tabChangesFocus">
                    <bool>true</bool>
@@ -197,7 +197,7 @@ color: rgb(31, 31, 31);
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(216, 216, 216);</string>
+                   <string notr="true">background-color: rgb(236, 243, 244);</string>
                   </property>
                   <property name="tabChangesFocus">
                    <bool>true</bool>
@@ -374,7 +374,10 @@ Parametros</string>
            </spacer>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
+           <layout class="QVBoxLayout" name="v3">
+            <property name="spacing">
+             <number>12</number>
+            </property>
             <item>
              <widget class="QLabel" name="label_7">
               <property name="font">
@@ -384,263 +387,112 @@ Parametros</string>
                </font>
               </property>
               <property name="text">
-               <string>Metricas.</string>
+               <string>Modificación de los parametros.</string>
               </property>
              </widget>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0">
-              <property name="bottomMargin">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="spacing">
                <number>6</number>
               </property>
               <item>
-               <widget class="QLabel" name="label_18">
+               <widget class="QLabel" name="label_2">
                 <property name="text">
-                 <string>Matriz de confusión.</string>
+                 <string>Peso 01</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_19">
+               <widget class="QSlider" name="slider_weight_01">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_weight_01">
                 <property name="font">
                  <font>
-                  <pointsize>8</pointsize>
-                  <italic>true</italic>
+                  <pointsize>10</pointsize>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="text">
-                 <string>Nota: eje x = valores reales (Yes, No), eje y = valores predecidos (Yes, No)</string>
+                 <string>0</string>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget" native="true">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>100</height>
-                 </size>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
                 </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <layout class="QGridLayout" name="gridLayout">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="spacing">
-                  <number>0</number>
-                 </property>
-                 <item row="0" column="0">
-                  <widget class="QFrame" name="frame_3">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(3, 68, 13);</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::Shape::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Shadow::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_8">
-                    <item>
-                     <widget class="QLabel" name="output_true_positives">
-                      <property name="font">
-                       <font>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>TP</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignmentFlag::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QFrame" name="frame_4">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(216, 216, 216);</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::Shape::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Shadow::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_2">
-                    <item>
-                     <widget class="QLabel" name="output_false_positives">
-                      <property name="font">
-                       <font>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: rgb(0, 0, 0);</string>
-                      </property>
-                      <property name="text">
-                       <string>FP</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignmentFlag::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QFrame" name="frame_5">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(216, 216, 216);</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::Shape::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Shadow::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_7">
-                    <item>
-                     <widget class="QLabel" name="output_false_negatives">
-                      <property name="font">
-                       <font>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: rgb(0, 0, 0);</string>
-                      </property>
-                      <property name="text">
-                       <string>FN</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignmentFlag::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QFrame" name="frame_6">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(3, 68, 13);</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::Shape::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Shadow::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_6">
-                    <item>
-                     <widget class="QLabel" name="output_true_negatives">
-                      <property name="font">
-                       <font>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>TN</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignmentFlag::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
                </widget>
               </item>
              </layout>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="0,0">
-              <property name="bottomMargin">
-               <number>10</number>
-              </property>
+             <layout class="QVBoxLayout" name="verticalLayout_10">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_16">
-                <item>
-                 <widget class="QLabel" name="label_16">
-                  <property name="text">
-                   <string>Precisión</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QTextEdit" name="output_precision">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>25</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(216, 216, 216);</string>
-                  </property>
-                  <property name="tabChangesFocus">
-                   <bool>true</bool>
-                  </property>
-                  <property name="readOnly">
-                   <bool>false</bool>
-                  </property>
-                  <property name="cursorWidth">
-                   <number>0</number>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>Peso 02</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_17">
-                <item>
-                 <widget class="QLabel" name="label_17">
-                  <property name="text">
-                   <string>F1 Score</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QTextEdit" name="output_f1_score">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>25</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(216, 216, 216);</string>
-                  </property>
-                  <property name="tabChangesFocus">
-                   <bool>true</bool>
-                  </property>
-                  <property name="readOnly">
-                   <bool>true</bool>
-                  </property>
-                  <property name="cursorWidth">
-                   <number>0</number>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+               <widget class="QSlider" name="slider_weight_02">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_weight_02">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>0</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_11">
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>Bias</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSlider" name="slider_bias">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_bias">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>0</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>

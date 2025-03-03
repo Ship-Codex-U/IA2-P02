@@ -38,11 +38,20 @@ class Perceptron:
         
         return False
 
-    def predict(self, x, y):
+    def predict(self, x : int, y : int) -> int:
         net = x*self.__weights[0] + y*self.__weights[1] + self.__bias[0]
 
         return self.activation(net)
     
+    def predict(self, inputs : list) -> list:
+        results = []
+
+        for i in range(len(inputs)):
+            net = inputs[i][0]*self.__weights[0] + inputs[i][1]*self.__weights[1] + self.__bias[0]
+            results.append(self.activation(net))
+
+        return results
+
     def get_MB_equation_line(self):
         if self.__weights[1]:
             m = -(self.__weights[0] / self.__weights[1])

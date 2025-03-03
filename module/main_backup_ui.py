@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main.ui'
+## Form generated from reading UI file 'main_backup.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -15,15 +15,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QLabel, QMainWindow, QPushButton, QSizePolicy,
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QMainWindow, QPushButton, QSizePolicy, QSlider,
     QSpacerItem, QTextEdit, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(998, 642)
+        MainWindow.resize(966, 596)
         MainWindow.setStyleSheet(u"QTextEdit {\n"
 "border-radius: 7px;\n"
 "}\n"
@@ -58,8 +58,8 @@ class Ui_MainWindow(object):
         self.frame_2.setStyleSheet(u"background-color: rgb(10, 134, 169);")
         self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_6 = QVBoxLayout(self.frame_2)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_3 = QVBoxLayout(self.frame_2)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label = QLabel(self.frame_2)
         self.label.setObjectName(u"label")
         font = QFont()
@@ -68,11 +68,11 @@ class Ui_MainWindow(object):
         self.label.setFont(font)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.verticalLayout_6.addWidget(self.label)
+        self.verticalLayout_3.addWidget(self.label)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout_6.addItem(self.verticalSpacer)
+        self.verticalLayout_3.addItem(self.verticalSpacer)
 
         self.label_10 = QLabel(self.frame_2)
         self.label_10.setObjectName(u"label_10")
@@ -81,7 +81,7 @@ class Ui_MainWindow(object):
         font1.setBold(True)
         self.label_10.setFont(font1)
 
-        self.verticalLayout_6.addWidget(self.label_10)
+        self.verticalLayout_3.addWidget(self.label_10)
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -97,7 +97,7 @@ class Ui_MainWindow(object):
         self.output_weight_01 = QTextEdit(self.frame_2)
         self.output_weight_01.setObjectName(u"output_weight_01")
         self.output_weight_01.setMaximumSize(QSize(16777215, 25))
-        self.output_weight_01.setStyleSheet(u"background-color: rgb(216, 216, 216);")
+        self.output_weight_01.setStyleSheet(u"				background-color: rgb(236, 243, 244);")
         self.output_weight_01.setTabChangesFocus(True)
         self.output_weight_01.setReadOnly(True)
         self.output_weight_01.setCursorWidth(0)
@@ -117,7 +117,7 @@ class Ui_MainWindow(object):
         self.output_weight_02 = QTextEdit(self.frame_2)
         self.output_weight_02.setObjectName(u"output_weight_02")
         self.output_weight_02.setMaximumSize(QSize(16777215, 25))
-        self.output_weight_02.setStyleSheet(u"background-color: rgb(216, 216, 216);")
+        self.output_weight_02.setStyleSheet(u"background-color: rgb(236, 243, 244);")
         self.output_weight_02.setTabChangesFocus(True)
         self.output_weight_02.setReadOnly(True)
         self.output_weight_02.setCursorWidth(0)
@@ -137,7 +137,7 @@ class Ui_MainWindow(object):
         self.output_bias = QTextEdit(self.frame_2)
         self.output_bias.setObjectName(u"output_bias")
         self.output_bias.setMaximumSize(QSize(16777215, 25))
-        self.output_bias.setStyleSheet(u"background-color: rgb(216, 216, 216);")
+        self.output_bias.setStyleSheet(u"background-color: rgb(236, 243, 244);")
         self.output_bias.setTabChangesFocus(True)
         self.output_bias.setReadOnly(True)
         self.output_bias.setCursorWidth(0)
@@ -242,180 +242,102 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
 
-        self.verticalLayout_6.addLayout(self.verticalLayout_2)
+        self.verticalLayout_3.addLayout(self.verticalLayout_2)
 
         self.verticalSpacer_3 = QSpacerItem(20, 80, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
 
-        self.verticalLayout_6.addItem(self.verticalSpacer_3)
+        self.verticalLayout_3.addItem(self.verticalSpacer_3)
 
-        self.verticalLayout_4 = QVBoxLayout()
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.v3 = QVBoxLayout()
+        self.v3.setSpacing(12)
+        self.v3.setObjectName(u"v3")
         self.label_7 = QLabel(self.frame_2)
         self.label_7.setObjectName(u"label_7")
         self.label_7.setFont(font1)
 
-        self.verticalLayout_4.addWidget(self.label_7)
+        self.v3.addWidget(self.label_7)
 
-        self.verticalLayout_3 = QVBoxLayout()
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(-1, -1, -1, 6)
-        self.label_18 = QLabel(self.frame_2)
-        self.label_18.setObjectName(u"label_18")
+        self.verticalLayout_6 = QVBoxLayout()
+        self.verticalLayout_6.setSpacing(6)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.label_2 = QLabel(self.frame_2)
+        self.label_2.setObjectName(u"label_2")
 
-        self.verticalLayout_3.addWidget(self.label_18)
+        self.verticalLayout_6.addWidget(self.label_2)
 
-        self.label_19 = QLabel(self.frame_2)
-        self.label_19.setObjectName(u"label_19")
-        font3 = QFont()
-        font3.setPointSize(8)
-        font3.setItalic(True)
-        self.label_19.setFont(font3)
+        self.slider_weight_01 = QSlider(self.frame_2)
+        self.slider_weight_01.setObjectName(u"slider_weight_01")
+        self.slider_weight_01.setOrientation(Qt.Orientation.Horizontal)
 
-        self.verticalLayout_3.addWidget(self.label_19)
+        self.verticalLayout_6.addWidget(self.slider_weight_01)
 
-        self.widget = QWidget(self.frame_2)
-        self.widget.setObjectName(u"widget")
-        self.widget.setMinimumSize(QSize(0, 100))
-        self.widget.setStyleSheet(u"")
-        self.gridLayout = QGridLayout(self.widget)
-        self.gridLayout.setSpacing(0)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.frame_3 = QFrame(self.widget)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setStyleSheet(u"background-color: rgb(3, 68, 13);")
-        self.frame_3.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_8 = QHBoxLayout(self.frame_3)
-        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.output_true_positives = QLabel(self.frame_3)
-        self.output_true_positives.setObjectName(u"output_true_positives")
-        font4 = QFont()
-        font4.setBold(True)
-        self.output_true_positives.setFont(font4)
-        self.output_true_positives.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_weight_01 = QLabel(self.frame_2)
+        self.label_weight_01.setObjectName(u"label_weight_01")
+        self.label_weight_01.setFont(font1)
+        self.label_weight_01.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.horizontalLayout_8.addWidget(self.output_true_positives)
+        self.verticalLayout_6.addWidget(self.label_weight_01)
 
 
-        self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
+        self.v3.addLayout(self.verticalLayout_6)
 
-        self.frame_4 = QFrame(self.widget)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setStyleSheet(u"background-color: rgb(216, 216, 216);")
-        self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_2 = QHBoxLayout(self.frame_4)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.output_false_positives = QLabel(self.frame_4)
-        self.output_false_positives.setObjectName(u"output_false_positives")
-        self.output_false_positives.setFont(font4)
-        self.output_false_positives.setStyleSheet(u"color: rgb(0, 0, 0);")
-        self.output_false_positives.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.verticalLayout_10 = QVBoxLayout()
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.label_3 = QLabel(self.frame_2)
+        self.label_3.setObjectName(u"label_3")
 
-        self.horizontalLayout_2.addWidget(self.output_false_positives)
+        self.verticalLayout_10.addWidget(self.label_3)
 
+        self.slider_weight_02 = QSlider(self.frame_2)
+        self.slider_weight_02.setObjectName(u"slider_weight_02")
+        self.slider_weight_02.setOrientation(Qt.Orientation.Horizontal)
 
-        self.gridLayout.addWidget(self.frame_4, 0, 1, 1, 1)
+        self.verticalLayout_10.addWidget(self.slider_weight_02)
 
-        self.frame_5 = QFrame(self.widget)
-        self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setStyleSheet(u"background-color: rgb(216, 216, 216);")
-        self.frame_5.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_5.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_7 = QHBoxLayout(self.frame_5)
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.output_false_negatives = QLabel(self.frame_5)
-        self.output_false_negatives.setObjectName(u"output_false_negatives")
-        self.output_false_negatives.setFont(font4)
-        self.output_false_negatives.setStyleSheet(u"color: rgb(0, 0, 0);")
-        self.output_false_negatives.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_weight_02 = QLabel(self.frame_2)
+        self.label_weight_02.setObjectName(u"label_weight_02")
+        self.label_weight_02.setFont(font1)
+        self.label_weight_02.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.horizontalLayout_7.addWidget(self.output_false_negatives)
+        self.verticalLayout_10.addWidget(self.label_weight_02)
 
 
-        self.gridLayout.addWidget(self.frame_5, 1, 0, 1, 1)
+        self.v3.addLayout(self.verticalLayout_10)
 
-        self.frame_6 = QFrame(self.widget)
-        self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setStyleSheet(u"background-color: rgb(3, 68, 13);")
-        self.frame_6.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_6.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_6 = QHBoxLayout(self.frame_6)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.output_true_negatives = QLabel(self.frame_6)
-        self.output_true_negatives.setObjectName(u"output_true_negatives")
-        self.output_true_negatives.setFont(font4)
-        self.output_true_negatives.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.verticalLayout_11 = QVBoxLayout()
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.label_4 = QLabel(self.frame_2)
+        self.label_4.setObjectName(u"label_4")
 
-        self.horizontalLayout_6.addWidget(self.output_true_negatives)
+        self.verticalLayout_11.addWidget(self.label_4)
 
+        self.slider_bias = QSlider(self.frame_2)
+        self.slider_bias.setObjectName(u"slider_bias")
+        self.slider_bias.setOrientation(Qt.Orientation.Horizontal)
 
-        self.gridLayout.addWidget(self.frame_6, 1, 1, 1, 1)
+        self.verticalLayout_11.addWidget(self.slider_bias)
 
+        self.label_bias = QLabel(self.frame_2)
+        self.label_bias.setObjectName(u"label_bias")
+        self.label_bias.setFont(font1)
+        self.label_bias.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.verticalLayout_3.addWidget(self.widget)
-
-
-        self.verticalLayout_4.addLayout(self.verticalLayout_3)
-
-        self.horizontalLayout_9 = QHBoxLayout()
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.horizontalLayout_9.setContentsMargins(-1, -1, -1, 10)
-        self.verticalLayout_16 = QVBoxLayout()
-        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
-        self.label_16 = QLabel(self.frame_2)
-        self.label_16.setObjectName(u"label_16")
-
-        self.verticalLayout_16.addWidget(self.label_16)
-
-        self.output_precision = QTextEdit(self.frame_2)
-        self.output_precision.setObjectName(u"output_precision")
-        self.output_precision.setMaximumSize(QSize(16777215, 25))
-        self.output_precision.setStyleSheet(u"background-color: rgb(216, 216, 216);")
-        self.output_precision.setTabChangesFocus(True)
-        self.output_precision.setReadOnly(False)
-        self.output_precision.setCursorWidth(0)
-
-        self.verticalLayout_16.addWidget(self.output_precision)
+        self.verticalLayout_11.addWidget(self.label_bias)
 
 
-        self.horizontalLayout_9.addLayout(self.verticalLayout_16)
-
-        self.verticalLayout_17 = QVBoxLayout()
-        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
-        self.label_17 = QLabel(self.frame_2)
-        self.label_17.setObjectName(u"label_17")
-
-        self.verticalLayout_17.addWidget(self.label_17)
-
-        self.output_f1_score = QTextEdit(self.frame_2)
-        self.output_f1_score.setObjectName(u"output_f1_score")
-        self.output_f1_score.setMaximumSize(QSize(16777215, 25))
-        self.output_f1_score.setStyleSheet(u"background-color: rgb(216, 216, 216);")
-        self.output_f1_score.setTabChangesFocus(True)
-        self.output_f1_score.setReadOnly(True)
-        self.output_f1_score.setCursorWidth(0)
-
-        self.verticalLayout_17.addWidget(self.output_f1_score)
+        self.v3.addLayout(self.verticalLayout_11)
 
 
-        self.horizontalLayout_9.addLayout(self.verticalLayout_17)
-
-
-        self.verticalLayout_4.addLayout(self.horizontalLayout_9)
-
-
-        self.verticalLayout_6.addLayout(self.verticalLayout_4)
+        self.verticalLayout_3.addLayout(self.v3)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout_6.addItem(self.verticalSpacer_2)
+        self.verticalLayout_3.addItem(self.verticalSpacer_2)
 
 
         self.horizontalLayout_5.addWidget(self.frame_2)
 
-        self.horizontalLayout_5.setStretch(0, 4)
+        self.horizontalLayout_5.setStretch(0, 3)
         self.horizontalLayout_5.setStretch(1, 2)
 
         self.verticalLayout.addWidget(self.frame)
@@ -430,7 +352,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Perceptr\u00f3n", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Entrenamiento.", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Parametros Iniciales", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Peso 1", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Peso 2", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Bias", None))
@@ -440,14 +362,12 @@ class Ui_MainWindow(object):
 "Parametros", None))
         self.button_start.setText(QCoreApplication.translate("MainWindow", u"Iniciar Analisis", None))
         self.button_clean.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Metricas.", None))
-        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Matriz de confusi\u00f3n.", None))
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Nota: eje x = valores reales (Yes, No), eje y = valores predecidos (Yes, No)", None))
-        self.output_true_positives.setText(QCoreApplication.translate("MainWindow", u"TP", None))
-        self.output_false_positives.setText(QCoreApplication.translate("MainWindow", u"FP", None))
-        self.output_false_negatives.setText(QCoreApplication.translate("MainWindow", u"FN", None))
-        self.output_true_negatives.setText(QCoreApplication.translate("MainWindow", u"TN", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Precisi\u00f3n", None))
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"F1 Score", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Modificaci\u00f3n de los parametros.", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Peso 01", None))
+        self.label_weight_01.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Peso 02", None))
+        self.label_weight_02.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Bias", None))
+        self.label_bias.setText(QCoreApplication.translate("MainWindow", u"0", None))
     # retranslateUi
 
