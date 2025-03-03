@@ -132,7 +132,16 @@ class MainWindow(QMainWindow):
         self.points.clear()
         self.init_inputs()
         self.init_plot()
+        self.init_maetrics()
         self.canvas.draw_idle()
+    
+    def init_maetrics(self):
+        self.ui.output_true_negatives.setText("TN")
+        self.ui.output_false_positives.setText("FP")
+        self.ui.output_false_negatives.setText("FN")
+        self.ui.output_true_positives.setText("TP")
+        self.ui.output_precision.setText("")
+        self.ui.output_f1_score.setText("")
 
     def init_plot(self):
         self.ax.clear()
