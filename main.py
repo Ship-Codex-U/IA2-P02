@@ -75,12 +75,12 @@ class MainWindow(QMainWindow):
             self.ui.output_false_negatives.setText(str(fn))
             self.ui.output_true_positives.setText(str(tp))
         
-        precision = tp / (tp + fp) #¿Que proporcion de identificaciones positivas fue realmente correcta?
-        recall = tp / (tp + fn) #¿Que proporcion de positivos reales se identificaron correctamente?
-        f1_score = 2 * (precision * recall) / (precision + recall) #Media armónica de precision y recall
+            precision = tp / (tp + fp) #¿Que proporcion de identificaciones positivas fue realmente correcta?
+            recall = tp / (tp + fn) #¿Que proporcion de positivos reales se identificaron correctamente?
+            f1_score = 2 * (precision * recall) / (precision + recall) #Media armónica de precision y recall
 
-        self.ui.output_precision.setText(str(round(precision, 2)))
-        self.ui.output_f1_score.setText(str(round(f1_score, 2)))
+            self.ui.output_precision.setText(str(round(precision, 2)))
+            self.ui.output_f1_score.setText(str(round(f1_score, 2)))
 
     
     @Slot()
